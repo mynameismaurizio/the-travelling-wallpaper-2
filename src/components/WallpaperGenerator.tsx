@@ -114,23 +114,23 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
                 onPhoneSizeChange={onPhoneSizeChange}
               />
             </div>
-            {country ? (
-              <WallpaperPreview
-                country={country}
-                baseCurrency={baseCurrency}
-                homeLanguage={homeLanguage}
-                exchangeRates={exchangeRates}
-                gradient={gradient}
+          {country ? (
+            <WallpaperPreview
+              country={country}
+              baseCurrency={baseCurrency}
+              homeLanguage={homeLanguage}
+              exchangeRates={exchangeRates}
+              gradient={gradient}
                 textOpacity={textOpacity}
-                phrases={phrases}
+              phrases={phrases}
                 showDomain={showDomain}
-                previewRef={previewRef}
-              />
-            ) : (
-              <div className="preview-placeholder">
-                <p>Select a country to generate your wallpaper</p>
-              </div>
-            )}
+              previewRef={previewRef}
+            />
+          ) : (
+            <div className="preview-placeholder">
+              <p>Select a country to generate your wallpaper</p>
+            </div>
+          )}
           </div>
         </div>
       </div>

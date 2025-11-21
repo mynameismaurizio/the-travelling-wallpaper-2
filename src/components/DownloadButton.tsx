@@ -235,13 +235,13 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
         onShowSavePage(imageDataUrl);
       } else {
         // Direct download for desktop
-        const link = document.createElement('a');
-        const timestamp = new Date().toISOString().slice(0, 10);
-        const filename = `wallpaper-${countryName.toLowerCase().replace(/\s+/g, '-')}-${timestamp}.png`;
-        
-        link.download = filename;
+      const link = document.createElement('a');
+      const timestamp = new Date().toISOString().slice(0, 10);
+      const filename = `wallpaper-${countryName.toLowerCase().replace(/\s+/g, '-')}-${timestamp}.png`;
+      
+      link.download = filename;
         link.href = imageDataUrl;
-        link.click();
+      link.click();
       }
     } catch (error) {
       console.error('Error generating wallpaper:', error);
