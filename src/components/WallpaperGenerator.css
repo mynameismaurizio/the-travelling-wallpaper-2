@@ -1,0 +1,148 @@
+.wallpaper-generator {
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.generator-container {
+  display: grid;
+  grid-template-columns: 280px auto;
+  gap: 40px;
+  align-items: start;
+  justify-content: start;
+}
+
+.generator-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controls-section {
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.generator-preview {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.preview-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.preview-controls {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.preview-placeholder {
+  width: 320px;
+  height: 693px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2a2a2a;
+  border-radius: 20px;
+  border: 2px dashed #444;
+  color: #888;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 30px;
+}
+
+@media (max-width: 1024px) {
+  .wallpaper-generator {
+    padding: 30px;
+  }
+  
+  .generator-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .generator-controls {
+    max-width: 100%;
+  }
+  
+  .generator-preview {
+    justify-content: center;
+  }
+  
+  .preview-controls {
+    max-width: 100%;
+  }
+  
+  .wallpaper-preview {
+    width: 320px !important;
+    height: 693px !important;
+    min-width: 320px;
+    max-width: 320px;
+    min-height: 693px;
+    max-height: 693px;
+  }
+  
+  .preview-placeholder {
+    width: 320px;
+    height: 693px;
+    min-width: 320px;
+    max-width: 320px;
+    min-height: 693px;
+    max-height: 693px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 20px 16px;
+  }
+  
+  .wallpaper-generator {
+    padding: 24px 20px;
+  }
+  
+  .generator-container {
+    gap: 24px;
+  }
+  
+  .wallpaper-preview {
+    width: 280px !important;
+    height: 607px !important;
+    min-width: 280px;
+    max-width: 280px;
+    min-height: 607px;
+    max-height: 607px;
+    border-width: 6px;
+  }
+  
+  .preview-placeholder {
+    width: 280px;
+    height: 607px;
+    min-width: 280px;
+    max-width: 280px;
+    min-height: 607px;
+    max-height: 607px;
+  }
+}
+

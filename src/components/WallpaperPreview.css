@@ -1,0 +1,131 @@
+.wallpaper-preview {
+  width: 320px !important;
+  height: 693px !important;
+  min-width: 320px;
+  max-width: 320px;
+  min-height: 693px;
+  max-height: 693px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  border: 6px solid #1a1a1a;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.wallpaper-content {
+  padding: 40px 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.wallpaper-columns {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  width: fit-content;
+  margin-top: 150px;
+  align-items: stretch;
+}
+
+.column {
+  flex: 0 0 auto;
+  line-height: 1.4;
+  font-size: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.column-currency {
+  width: 48px;
+  height: 100%;
+}
+
+.column-converted {
+  width: 48px;
+  height: 100%;
+}
+
+.column-phrase {
+  flex: 1;
+  height: 100%;
+}
+
+.item {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+  color: #ffffff;
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+.spacing-small {
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.sub {
+  color: #6b7c9d;
+  font-size: 7px;
+  font-weight: normal;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .wallpaper-preview {
+    width: 280px !important;
+    height: 607px !important;
+    min-width: 280px;
+    max-width: 280px;
+    min-height: 607px;
+    max-height: 607px;
+    border-width: 6px;
+  }
+  
+  .wallpaper-content {
+    padding: 30px 20px;
+  }
+  
+  .wallpaper-columns {
+    gap: 20px;
+  }
+  
+  .conversion-row {
+    font-size: 8px;
+    line-height: 1.2;
+    height: auto;
+  }
+  
+  .currency-amount-only {
+    font-size: 8px;
+    line-height: 1.2;
+    height: auto;
+  }
+  
+  .currency-amount,
+  .equals,
+  .converted-amount {
+    font-size: 8px;
+    line-height: 1.2;
+  }
+  
+  .phrase-translation {
+    font-size: 8px;
+    line-height: 1.2;
+  }
+  
+  .phrase-transliteration {
+    font-size: 7px;
+    line-height: 1.2;
+  }
+}

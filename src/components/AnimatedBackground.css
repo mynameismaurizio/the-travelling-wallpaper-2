@@ -1,0 +1,17 @@
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, var(--start-color) 0%, #000000 30%, #000000 70%, var(--end-color) 100%);
+}
+
+/* Ensure content is above background */
+.app {
+  position: relative;
+  z-index: 1;
+}
+
