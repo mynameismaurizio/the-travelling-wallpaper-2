@@ -42,6 +42,6 @@ export const phoneSizes: PhoneSize[] = [
   { name: 'Xiaomi 13 Pro', width: 1440, height: 3200, aspectRatio: 1440 / 3200 },
 ];
 
-// Default phone size (iPhone 8 Plus - most common)
-export const defaultPhoneSize: PhoneSize = phoneSizes.find(s => s.name === 'iPhone 8 Plus') || phoneSizes[13];
+// Default phone size (iPhone 15 Pro Max)
+export const defaultPhoneSize: PhoneSize = phoneSizes.find(s => s.name === 'iPhone 15 Pro Max') || phoneSizes[0];
 

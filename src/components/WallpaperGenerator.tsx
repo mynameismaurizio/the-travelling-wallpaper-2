@@ -97,6 +97,12 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
         
         <div className="generator-preview">
           <div className="preview-wrapper">
+            <div className="preview-controls">
+              <PhoneSizeSelector
+                selectedPhoneSize={phoneSize}
+                onPhoneSizeChange={onPhoneSizeChange}
+              />
+            </div>
             {country ? (
               <WallpaperPreview
                 country={country}
@@ -113,12 +119,6 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
                 <p>Select a country to generate your wallpaper</p>
               </div>
             )}
-            <div className="preview-controls">
-              <PhoneSizeSelector
-                selectedPhoneSize={phoneSize}
-                onPhoneSizeChange={onPhoneSizeChange}
-              />
-            </div>
           </div>
         </div>
       </div>

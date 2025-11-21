@@ -101,6 +101,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       contentDiv.style.flexDirection = 'column';
       contentDiv.style.alignItems = 'center';
       contentDiv.style.boxSizing = 'border-box';
+      contentDiv.style.position = 'relative';
 
       const columnsDiv = document.createElement('div');
       columnsDiv.style.display = 'flex';
@@ -110,6 +111,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       columnsDiv.style.marginTop = `${150 * scaleFactor}px`;
       columnsDiv.style.alignItems = 'stretch';
       columnsDiv.style.color = textColor;
+      columnsDiv.style.position = 'relative';
 
       // Column 1: Currency
       const col1 = document.createElement('div');
@@ -182,6 +184,25 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       columnsDiv.appendChild(col1);
       columnsDiv.appendChild(col2);
       columnsDiv.appendChild(col3);
+      
+      // Add domain watermark aligned to bottom left of wallpaper-columns
+      const domainText = window.location.hostname || 'the-travelling-wallpaper.com';
+      const domainDiv = document.createElement('div');
+      domainDiv.style.position = 'absolute';
+      domainDiv.style.bottom = '0';
+      domainDiv.style.left = '0';
+      domainDiv.style.fontSize = `${6 * scaleFactor}px`;
+      domainDiv.style.opacity = '0.6';
+      domainDiv.style.letterSpacing = '0.5px';
+      domainDiv.style.color = textColor;
+      domainDiv.style.fontFamily = 'Montserrat, sans-serif';
+      domainDiv.style.whiteSpace = 'nowrap';
+      domainDiv.style.transform = 'rotate(90deg)';
+      domainDiv.style.transformOrigin = 'bottom left';
+      domainDiv.style.marginLeft = `${-10 * scaleFactor}px`;
+      domainDiv.textContent = domainText;
+      columnsDiv.appendChild(domainDiv);
+      
       contentDiv.appendChild(columnsDiv);
       exportDiv.appendChild(contentDiv);
       document.body.appendChild(exportDiv);

@@ -136,6 +136,9 @@ export const WallpaperPreview: React.FC<WallpaperPreviewProps> = ({
               return null;
             })}
           </div>
+          <div className="wallpaper-domain" style={{ color: textColor }}>
+            {typeof window !== 'undefined' ? window.location.hostname : 'the-travelling-wallpaper.com'}
+          </div>
         </div>
       </div>
     </div>
