@@ -27,7 +27,7 @@ interface WallpaperGeneratorProps {
   onGradientChange: (gradient: Gradient) => void;
   onPhoneSizeChange: (phoneSize: PhoneSize) => void;
   onTextOpacityChange: (opacity: number) => void;
-  previewRef: React.RefObject<HTMLDivElement>;
+  previewRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({

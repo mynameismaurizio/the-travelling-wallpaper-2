@@ -1,6 +1,6 @@
 import React from 'react';
 import { countries, continents } from '../data/countries';
-import type { Continent, Country } from '../data/countries';
+import type { Country } from '../data/countries';
 import './CountrySelector.css';
 
 interface CountrySelectorProps {

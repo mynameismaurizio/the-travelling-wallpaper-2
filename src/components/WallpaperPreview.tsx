@@ -14,7 +14,7 @@ interface WallpaperPreviewProps {
   gradient: Gradient;
   textOpacity: number;
   phrases: Phrase[];
-  previewRef?: React.RefObject<HTMLDivElement>;
+  previewRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 // Common denominations to display

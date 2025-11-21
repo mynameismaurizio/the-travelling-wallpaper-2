@@ -66,14 +66,6 @@ export async function detectCurrency(): Promise<string> {
     }
 
     // Try using Intl API
-    const formatter = new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: 'USD', // This will be ignored, we just want the locale
-    });
-    
-    const parts = formatter.formatToParts(1);
-    const currencyCode = parts.find(part => part.type === 'currency')?.value;
-    
     // Fallback: try IP-based geolocation via a free API
     try {
       const response = await fetch('https://ipapi.co/json/');

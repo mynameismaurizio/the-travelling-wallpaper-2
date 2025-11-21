@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef, Component, ErrorInfo, ReactNode } from 'react';
+import { useState, useEffect, useRef, Component } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WallpaperGenerator } from './components/WallpaperGenerator';
@@ -7,8 +8,6 @@ import type { Country } from './data/countries';
 import { gradients } from './data/gradients';
 import type { Gradient } from './data/gradients';
 import { defaultPhoneSize, type PhoneSize } from './data/phoneSizes';
-import { fetchExchangeRates } from './services/exchangeRateAPI';
-import { detectCurrency, detectUserLanguage } from './services/geolocation';
 import './App.css';
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean; error: Error | null }> {
@@ -52,8 +51,7 @@ function App() {
   const [phoneSize, setPhoneSize] = useState<PhoneSize>(defaultPhoneSize);
   const [textOpacity, setTextOpacity] = useState<number>(100);
   const [exchangeRates, setExchangeRates] = useState<Record<string, number> | null>(null);
-  const [loading, setLoading] = useState(false);
-  const previewRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLDivElement | null>(null);
 
   // Detect user's currency and language on mount
   useEffect(() => {
@@ -76,17 +74,14 @@ function App() {
   useEffect(() => {
     if (baseCurrency) {
       console.log('✅ Fetching exchange rates for:', baseCurrency);
-      setLoading(true);
       import('./services/exchangeRateAPI').then(({ fetchExchangeRates }) => {
         fetchExchangeRates(baseCurrency)
           .then(data => {
             console.log('✅ Exchange rates fetched:', Object.keys(data.rates).length, 'currencies');
             setExchangeRates(data.rates);
-            setLoading(false);
           })
           .catch(error => {
             console.error('❌ Failed to fetch exchange rates:', error);
-            setLoading(false);
           });
       });
     }
