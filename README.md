@@ -1,74 +1,65 @@
-# 🌍 The Travelling Wallpaper
+<div style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; color: #e5e5e5; padding: 40px 20px; max-width: 900px; margin: 0 auto; line-height: 1.6;">
 
-> Generate beautiful, personalized phone wallpapers with currency conversions and essential travel phrases for your next adventure.
+# The Travelling Wallpaper
 
-[![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.4-646CFF?logo=vite)](https://vitejs.dev/)
-
----
-
-## ✨ Features
-
-- 🎨 **Beautiful Gradients** - Choose from a variety of stunning gradient backgrounds
-- 💱 **Currency Conversion** - Real-time exchange rates with your home currency
-- 🌐 **Multi-language Support** - Essential travel phrases in multiple languages
-- 📱 **Phone Size Selection** - Generate wallpapers for any phone model (iPhone, Samsung, Google Pixel, and more)
-- 🎭 **Text Visibility Control** - Adjust text opacity to blend seamlessly with your wallpaper
-- 📥 **High-Quality Downloads** - Export wallpapers in your phone's native resolution
-- 🎯 **Auto-detection** - Automatically detects your currency and language preferences
+<div style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 40px;">
+Generate beautiful, personalized phone wallpapers with currency conversions and essential travel phrases for your next adventure.
+</div>
 
 ---
 
-## 📸 Screenshots
+## Features
+
+<div style="margin: 30px 0;">
+
+**Beautiful Gradients**  
+Choose from a variety of stunning gradient backgrounds
+
+**Currency Conversion**  
+Real-time exchange rates with your home currency
+
+**Multi-language Support**  
+Essential travel phrases in multiple languages
+
+**Phone Size Selection**  
+Generate wallpapers for any phone model (iPhone, Samsung, Google Pixel, and more)
+
+**Text Visibility Control**  
+Adjust text opacity to blend seamlessly with your wallpaper
+
+**High-Quality Downloads**  
+Export wallpapers in your phone's native resolution
+
+**Auto-detection**  
+Automatically detects your currency and language preferences
+
+</div>
+
+---
+
+## Screenshots
+
+<div style="margin: 30px 0;">
 
 ### Main Interface
-![Main Interface](./screenshots/main-interface.png)
-*The main interface with country selection and customization options*
+<img src="./screenshots/main-interface.png" alt="Main Interface" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 20px 0; border: 1px solid #444;">
+<div style="color: #b0b0b0; font-size: 0.9rem; margin-bottom: 30px;">The main interface with country selection and customization options</div>
 
 ### Wallpaper Preview
-![Wallpaper Preview](./screenshots/wallpaper-preview.png)
-*Preview your custom wallpaper before downloading*
+<img src="./screenshots/wallpaper-preview.png" alt="Wallpaper Preview" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 20px 0; border: 1px solid #444;">
+<div style="color: #b0b0b0; font-size: 0.9rem; margin-bottom: 30px;">Preview your custom wallpaper before downloading</div>
 
 ### Customization Options
-![Customization](./screenshots/customization.png)
-*Customize gradient, text visibility, and phone size*
+<img src="./screenshots/customization.png" alt="Customization" style="width: 100%; max-width: 600px; border-radius: 8px; margin: 20px 0; border: 1px solid #444;">
+<div style="color: #b0b0b0; font-size: 0.9rem; margin-bottom: 30px;">Customize gradient, text visibility, and phone size</div>
 
-> 💡 **Note:** Add your screenshots to the `screenshots/` folder and they will appear here automatically.
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/the-travelling-wallpaper.git
-   cd the-travelling-wallpaper
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:5173` (or the port shown in your terminal)
+</div>
 
 ---
 
-## 📖 Usage
+## Usage
+
+<div style="margin: 30px 0; color: #e5e5e5;">
 
 1. **Select a Country** - Choose your travel destination from the dropdown
 2. **Set Your Currency** - Select your home currency (auto-detected based on location)
@@ -78,9 +69,13 @@
 6. **Select Phone Size** - Choose your phone model for perfect sizing
 7. **Download** - Click "Download Wallpaper" to save your custom wallpaper
 
+</div>
+
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
+
+<div style="margin: 30px 0;">
 
 - **Frontend Framework:** React 19.2
 - **Language:** TypeScript
@@ -89,9 +84,13 @@
 - **Image Generation:** html2canvas
 - **API:** Exchange Rate API for real-time currency conversions
 
+</div>
+
 ---
 
-## 📁 Project Structure
+## Project Structure
+
+<div style="background-color: #2a2a2a; padding: 20px; border-radius: 8px; margin: 30px 0; font-family: 'Monaco', 'Courier New', monospace; font-size: 0.9rem; overflow-x: auto;">
 
 ```
 the-travelling-wallpaper/
@@ -121,9 +120,13 @@ the-travelling-wallpaper/
 └── screenshots/             # Screenshots for README
 ```
 
+</div>
+
 ---
 
-## 🎨 Customization
+## Customization
+
+<div style="margin: 30px 0;">
 
 ### Adding New Gradients
 
@@ -145,59 +148,24 @@ export const gradients: Gradient[] = [
 
 Edit `src/data/countries.ts` to add more destinations with their currencies and phrases.
 
----
-
-## 🚢 Building for Production
-
-```bash
-npm run build
-```
-
-The production build will be in the `dist/` folder.
-
-Preview the production build:
-
-```bash
-npm run preview
-```
+</div>
 
 ---
 
-## 🤝 Contributing
+## License
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+<div style="margin: 30px 0; color: #b0b0b0;">
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+This project is open source and available under the MIT License.
+
+</div>
 
 ---
 
-## 📝 License
+<div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid #444; color: #b0b0b0; font-size: 0.9rem;">
 
-This project is open source and available under the [MIT License](LICENSE).
+Made for travelers around the world
 
----
-
-## 🙏 Acknowledgments
-
-- Exchange Rate API for providing real-time currency data
-- All the travelers who inspired this project
-
----
-
-## 📧 Contact
-
-If you have any questions or suggestions, feel free to open an issue or reach out!
-
----
-
-<div align="center">
-
-**Made with ❤️ for travelers around the world**
-
-⭐ Star this repo if you find it useful!
+</div>
 
 </div>
