@@ -51,6 +51,7 @@ function App() {
   });
   const [phoneSize, setPhoneSize] = useState<PhoneSize>(defaultPhoneSize);
   const [textOpacity, setTextOpacity] = useState<number>(100);
+  const [showDomain, setShowDomain] = useState<boolean>(true);
   const [exchangeRates, setExchangeRates] = useState<Record<string, number> | null>(null);
   const [showSavePage, setShowSavePage] = useState(false);
   const [savePageImageUrl, setSavePageImageUrl] = useState<string>('');
@@ -120,6 +121,11 @@ function App() {
     setTextOpacity(newTextOpacity);
   };
 
+  const handleShowDomainChange = (show: boolean) => {
+    console.log('✅ Show domain changed:', show);
+    setShowDomain(show);
+  };
+
   const handleShowSavePage = (imageUrl: string) => {
     setSavePageImageUrl(imageUrl);
     setShowSavePage(true);
@@ -157,12 +163,14 @@ function App() {
           gradient={gradient}
           phoneSize={phoneSize}
           textOpacity={textOpacity}
+          showDomain={showDomain}
           onCountryChange={handleCountryChange}
           onCurrencyChange={handleCurrencyChange}
           onLanguageChange={handleLanguageChange}
           onGradientChange={handleGradientChange}
           onPhoneSizeChange={handlePhoneSizeChange}
           onTextOpacityChange={handleTextOpacityChange}
+          onShowDomainChange={handleShowDomainChange}
           onShowSavePage={handleShowSavePage}
           previewRef={previewRef}
         />

@@ -5,6 +5,7 @@ import { CurrencySelector } from './CurrencySelector';
 import { LanguageSelector } from './LanguageSelector';
 import { PhoneSizeSelector } from './PhoneSizeSelector';
 import { TextOpacitySelector } from './TextOpacitySelector';
+import { DomainToggle } from './DomainToggle';
 import { DownloadButton } from './DownloadButton';
 import { WallpaperPreview } from './WallpaperPreview';
 import type { Country } from '../data/countries';
@@ -21,12 +22,14 @@ interface WallpaperGeneratorProps {
   gradient: Gradient;
   phoneSize: PhoneSize;
   textOpacity: number;
+  showDomain: boolean;
   onCountryChange: (country: Country) => void;
   onCurrencyChange: (currency: string) => void;
   onLanguageChange: (language: string) => void;
   onGradientChange: (gradient: Gradient) => void;
   onPhoneSizeChange: (phoneSize: PhoneSize) => void;
   onTextOpacityChange: (opacity: number) => void;
+  onShowDomainChange: (show: boolean) => void;
   onShowSavePage: (imageUrl: string) => void;
   previewRef: React.RefObject<HTMLDivElement | null>;
 }
@@ -39,12 +42,14 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
   gradient,
   phoneSize,
   textOpacity,
+  showDomain,
   onCountryChange,
   onCurrencyChange,
   onLanguageChange,
   onGradientChange,
   onPhoneSizeChange,
   onTextOpacityChange,
+  onShowDomainChange,
   onShowSavePage,
   previewRef,
 }) => {
@@ -79,6 +84,11 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
             onTextOpacityChange={onTextOpacityChange}
           />
           
+          <DomainToggle
+            showDomain={showDomain}
+            onToggle={onShowDomainChange}
+          />
+          
           {country && (
             <DownloadButton
               country={country}
@@ -90,6 +100,7 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
               textOpacity={textOpacity}
               phrases={phrases}
               countryName={country.name}
+              showDomain={showDomain}
               onShowSavePage={onShowSavePage}
             />
           )}
@@ -112,6 +123,7 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
                 gradient={gradient}
                 textOpacity={textOpacity}
                 phrases={phrases}
+                showDomain={showDomain}
                 previewRef={previewRef}
               />
             ) : (

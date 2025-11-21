@@ -14,6 +14,7 @@ interface WallpaperPreviewProps {
   gradient: Gradient;
   textOpacity: number;
   phrases: Phrase[];
+  showDomain: boolean;
   previewRef?: React.RefObject<HTMLDivElement | null>;
 }
 
@@ -28,6 +29,7 @@ export const WallpaperPreview: React.FC<WallpaperPreviewProps> = ({
   gradient,
   textOpacity,
   phrases,
+  showDomain,
   previewRef,
 }) => {
 
@@ -136,9 +138,11 @@ export const WallpaperPreview: React.FC<WallpaperPreviewProps> = ({
               return null;
             })}
           </div>
-          <div className="wallpaper-domain" style={{ color: textColor }}>
-            {typeof window !== 'undefined' ? window.location.hostname : 'the-travelling-wallpaper.com'}
-          </div>
+          {showDomain && (
+            <div className="wallpaper-domain" style={{ color: textColor }}>
+              {typeof window !== 'undefined' ? window.location.hostname : 'the-travelling-wallpaper.com'}
+            </div>
+          )}
         </div>
       </div>
     </div>

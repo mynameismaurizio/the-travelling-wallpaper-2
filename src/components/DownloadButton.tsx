@@ -18,6 +18,7 @@ interface DownloadButtonProps {
   textOpacity: number;
   phrases: Phrase[];
   countryName: string;
+  showDomain: boolean;
   onShowSavePage: (imageUrl: string) => void;
 }
 
@@ -31,6 +32,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
   textOpacity,
   phrases,
   countryName,
+  showDomain,
   onShowSavePage,
 }) => {
   const [isDownloading, setIsDownloading] = React.useState(false);
@@ -185,22 +187,24 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       columnsDiv.appendChild(col2);
       columnsDiv.appendChild(col3);
       
-      // Add domain watermark aligned to bottom left of wallpaper-columns
-      const domainText = window.location.hostname || 'the-travelling-wallpaper.com';
-      const domainDiv = document.createElement('div');
-      domainDiv.style.position = 'absolute';
-      domainDiv.style.bottom = `${147 * scaleFactor}px`;
-      domainDiv.style.left = `${-15 * scaleFactor}px`;
-      domainDiv.style.fontSize = `${5 * scaleFactor}px`;
-      domainDiv.style.opacity = '0.6';
-      domainDiv.style.letterSpacing = '0.5px';
-      domainDiv.style.color = textColor;
-      domainDiv.style.fontFamily = 'Montserrat, sans-serif';
-      domainDiv.style.whiteSpace = 'nowrap';
-      domainDiv.style.transform = 'rotate(90deg)';
-      domainDiv.style.transformOrigin = 'bottom left';
-      domainDiv.textContent = domainText;
-      columnsDiv.appendChild(domainDiv);
+      // Add domain watermark aligned to bottom left of wallpaper-columns (if enabled)
+      if (showDomain) {
+        const domainText = window.location.hostname || 'the-travelling-wallpaper.com';
+        const domainDiv = document.createElement('div');
+        domainDiv.style.position = 'absolute';
+        domainDiv.style.bottom = `${147 * scaleFactor}px`;
+        domainDiv.style.left = `${-15 * scaleFactor}px`;
+        domainDiv.style.fontSize = `${5 * scaleFactor}px`;
+        domainDiv.style.opacity = '0.6';
+        domainDiv.style.letterSpacing = '0.5px';
+        domainDiv.style.color = textColor;
+        domainDiv.style.fontFamily = 'Montserrat, sans-serif';
+        domainDiv.style.whiteSpace = 'nowrap';
+        domainDiv.style.transform = 'rotate(90deg)';
+        domainDiv.style.transformOrigin = 'bottom left';
+        domainDiv.textContent = domainText;
+        columnsDiv.appendChild(domainDiv);
+      }
       
       contentDiv.appendChild(columnsDiv);
       exportDiv.appendChild(contentDiv);
