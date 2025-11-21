@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
         </p>
         <div className="footer-links">
           <a 
-            href="https://github.com" 
+            href="https://github.com/mynameismaurizio/the-travelling-wallpaper-2" 
             target="_blank" 
             rel="noopener noreferrer"
             className="footer-link"
@@ -19,19 +19,33 @@ export const Footer: React.FC = () => {
           </a>
           <span className="footer-separator">•</span>
           <a 
-            href="#" 
+            href="https://www.reddit.com/r/ThailandTourism/comments/1p0k74j/as_a_first_time_visitor_found_this_wallpaper/" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="footer-link"
           >
-            About
+            Inspired by
           </a>
           <span className="footer-separator">•</span>
           <a 
-            href="#" 
+            href="https://rocco.gimondi.com/Information" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="footer-link"
           >
             Contact
           </a>
         </div>
+        <p className="footer-disclaimer">
+          Developed by <a 
+            href="https://rocco.gimondi.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="footer-link"
+          >
+            Rocco Gimondi
+          </a>
+        </p>
         <p className="footer-disclaimer">
           Exchange rates provided by{' '}
           <a 

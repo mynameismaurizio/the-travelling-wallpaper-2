@@ -130,4 +130,10 @@ This project is open source and available under the MIT License.
 
 ---
 
-<p align="center">Made for travelers around the world</p>
+<p align="center">
+<strong>Rocco Gimondi</strong> Creative human-being<br>
+<a href="https://rocco.gimondi.com/">Info</a> · 
+<a href="mailto:your-email@example.com">Email</a> · 
+<a href="https://www.instagram.com/yourusername">Instagram</a> · 
+<a href="https://www.linkedin.com/in/yourusername">LinkedIn</a>
+</p>
