@@ -18,6 +18,7 @@ interface DownloadButtonProps {
   textOpacity: number;
   phrases: Phrase[];
   countryName: string;
+  onShowSavePage: (imageUrl: string) => void;
 }
 
 export const DownloadButton: React.FC<DownloadButtonProps> = ({
@@ -30,6 +31,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
   textOpacity,
   phrases,
   countryName,
+  onShowSavePage,
 }) => {
   const [isDownloading, setIsDownloading] = React.useState(false);
 
@@ -198,13 +200,25 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       
       document.body.removeChild(exportDiv);
       
-      const link = document.createElement('a');
-      const timestamp = new Date().toISOString().slice(0, 10);
-      const filename = `wallpaper-${countryName.toLowerCase().replace(/\s+/g, '-')}-${timestamp}.png`;
+      const imageDataUrl = canvas.toDataURL('image/png');
       
-      link.download = filename;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      // Detect if user is on mobile
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                       (window.innerWidth <= 768 && window.innerHeight <= 1024);
+      
+      if (isMobile) {
+        // Show save page with instructions for mobile
+        onShowSavePage(imageDataUrl);
+      } else {
+        // Direct download for desktop
+        const link = document.createElement('a');
+        const timestamp = new Date().toISOString().slice(0, 10);
+        const filename = `wallpaper-${countryName.toLowerCase().replace(/\s+/g, '-')}-${timestamp}.png`;
+        
+        link.download = filename;
+        link.href = imageDataUrl;
+        link.click();
+      }
     } catch (error) {
       console.error('Error generating wallpaper:', error);
       alert('Failed to generate wallpaper. Please try again.');

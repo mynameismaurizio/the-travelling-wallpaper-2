@@ -27,6 +27,7 @@ interface WallpaperGeneratorProps {
   onGradientChange: (gradient: Gradient) => void;
   onPhoneSizeChange: (phoneSize: PhoneSize) => void;
   onTextOpacityChange: (opacity: number) => void;
+  onShowSavePage: (imageUrl: string) => void;
   previewRef: React.RefObject<HTMLDivElement | null>;
 }
 
@@ -44,6 +45,7 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
   onGradientChange,
   onPhoneSizeChange,
   onTextOpacityChange,
+  onShowSavePage,
   previewRef,
 }) => {
   const phrases = country ? getPhrases(country.code) : [];
@@ -88,6 +90,7 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
               textOpacity={textOpacity}
               phrases={phrases}
               countryName={country.name}
+              onShowSavePage={onShowSavePage}
             />
           )}
         </div>

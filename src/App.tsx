@@ -3,6 +3,7 @@ import type { ErrorInfo, ReactNode } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WallpaperGenerator } from './components/WallpaperGenerator';
+import { SaveWallpaperPage } from './components/SaveWallpaperPage';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import type { Country } from './data/countries';
 import { gradients } from './data/gradients';
@@ -51,6 +52,8 @@ function App() {
   const [phoneSize, setPhoneSize] = useState<PhoneSize>(defaultPhoneSize);
   const [textOpacity, setTextOpacity] = useState<number>(100);
   const [exchangeRates, setExchangeRates] = useState<Record<string, number> | null>(null);
+  const [showSavePage, setShowSavePage] = useState(false);
+  const [savePageImageUrl, setSavePageImageUrl] = useState<string>('');
   const previewRef = useRef<HTMLDivElement | null>(null);
 
   // Detect user's currency and language on mount
@@ -117,7 +120,29 @@ function App() {
     setTextOpacity(newTextOpacity);
   };
 
+  const handleShowSavePage = (imageUrl: string) => {
+    setSavePageImageUrl(imageUrl);
+    setShowSavePage(true);
+  };
+
+  const handleBackToGenerator = () => {
+    setShowSavePage(false);
+    setSavePageImageUrl('');
+  };
+
   console.log('✅ Rendering App with:', { country: country?.name, baseCurrency, gradient: gradient.name });
+
+  // Show save page if active
+  if (showSavePage) {
+    return (
+      <ErrorBoundary>
+        <SaveWallpaperPage
+          imageUrl={savePageImageUrl}
+          onBack={handleBackToGenerator}
+        />
+      </ErrorBoundary>
+    );
+  }
 
   return (
     <ErrorBoundary>
@@ -138,6 +163,7 @@ function App() {
           onGradientChange={handleGradientChange}
           onPhoneSizeChange={handlePhoneSizeChange}
           onTextOpacityChange={handleTextOpacityChange}
+          onShowSavePage={handleShowSavePage}
           previewRef={previewRef}
         />
         <Footer />

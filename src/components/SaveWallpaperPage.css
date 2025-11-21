@@ -1,0 +1,105 @@
+.save-wallpaper-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.save-wallpaper-content {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.save-wallpaper-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 40px 0;
+  color: #ffffff;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.save-wallpaper-instructions {
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.save-wallpaper-instructions h2 {
+  font-size: 1.2rem;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.save-wallpaper-instructions ol {
+  margin: 0 0 0 20px;
+  padding: 0;
+  line-height: 1.8;
+  color: #b0b0b0;
+}
+
+.save-wallpaper-instructions li {
+  margin-bottom: 12px;
+}
+
+.save-wallpaper-instructions strong {
+  color: #ffffff;
+}
+
+.save-wallpaper-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.save-wallpaper-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.save-wallpaper-back-button {
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: #4a90e2;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.save-wallpaper-back-button:hover {
+  background-color: #5ba0f2;
+}
+
+@media (max-width: 768px) {
+  .save-wallpaper-page {
+    padding: 30px 20px;
+  }
+  
+  .save-wallpaper-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .save-wallpaper-instructions {
+    padding: 20px;
+  }
+  
+  .save-wallpaper-instructions h2 {
+    font-size: 1.1rem;
+  }
+}
+
