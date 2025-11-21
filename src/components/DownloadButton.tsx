@@ -189,9 +189,9 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       const domainText = window.location.hostname || 'the-travelling-wallpaper.com';
       const domainDiv = document.createElement('div');
       domainDiv.style.position = 'absolute';
-      domainDiv.style.bottom = '0';
-      domainDiv.style.left = '0';
-      domainDiv.style.fontSize = `${6 * scaleFactor}px`;
+      domainDiv.style.bottom = `${147 * scaleFactor}px`;
+      domainDiv.style.left = `${-15 * scaleFactor}px`;
+      domainDiv.style.fontSize = `${5 * scaleFactor}px`;
       domainDiv.style.opacity = '0.6';
       domainDiv.style.letterSpacing = '0.5px';
       domainDiv.style.color = textColor;
@@ -199,7 +199,6 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       domainDiv.style.whiteSpace = 'nowrap';
       domainDiv.style.transform = 'rotate(90deg)';
       domainDiv.style.transformOrigin = 'bottom left';
-      domainDiv.style.marginLeft = `${-10 * scaleFactor}px`;
       domainDiv.textContent = domainText;
       columnsDiv.appendChild(domainDiv);
       
