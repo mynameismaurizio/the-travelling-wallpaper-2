@@ -121,9 +121,10 @@ export const WallpaperGenerator: React.FC<WallpaperGeneratorProps> = ({
               homeLanguage={homeLanguage}
               exchangeRates={exchangeRates}
               gradient={gradient}
-                textOpacity={textOpacity}
+              textOpacity={textOpacity}
               phrases={phrases}
-                showDomain={showDomain}
+              showDomain={showDomain}
+              phoneSize={phoneSize}
               previewRef={previewRef}
             />
           ) : (

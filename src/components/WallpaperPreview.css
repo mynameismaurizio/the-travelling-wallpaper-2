@@ -1,10 +1,10 @@
 .wallpaper-preview {
-  width: 320px !important;
-  height: 693px !important;
-  min-width: 320px;
-  max-width: 320px;
-  min-height: 693px;
-  max-height: 693px;
+  width: var(--preview-width, 320px) !important;
+  height: var(--preview-height, 693px) !important;
+  min-width: var(--preview-width, 320px);
+  max-width: var(--preview-width, 320px);
+  min-height: var(--preview-height, 693px);
+  max-height: var(--preview-height, 693px);
   margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
@@ -16,7 +16,7 @@
 }
 
 .wallpaper-content {
-  padding: 40px 20px;
+  padding: var(--content-padding-top, 40px) var(--content-padding-sides, 20px);
   height: 100%;
   width: 100%;
   display: flex;
@@ -30,10 +30,10 @@
 
 .wallpaper-columns {
   display: flex;
-  gap: 20px;
+  gap: var(--columns-gap, 20px);
   height: 100%;
   width: fit-content;
-  margin-top: 150px;
+  margin-top: var(--columns-margin-top, 150px);
   align-items: stretch;
   position: relative;
 }
@@ -41,19 +41,20 @@
 .column {
   flex: 0 0 auto;
   line-height: 1.4;
-  font-size: 8px;
+  font-size: var(--font-size-base, 8px);
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .column-currency {
-  width: 48px;
+  width: var(--column-width, 48px);
   height: 100%;
+  position: relative;
 }
 
 .column-converted {
-  width: 48px;
+  width: var(--column-width, 48px);
   height: 100%;
 }
 
@@ -67,31 +68,33 @@
   margin-top: 0;
   padding: 0;
   color: #ffffff;
-  font-size: 8px;
+  font-size: var(--font-size-base, 8px);
   line-height: 1.4;
 }
 
 .spacing-small {
-  margin-top: 6px;
+  margin-top: var(--spacing-small, 6px);
   margin-bottom: 0;
 }
 
 .sub {
   color: #6b7c9d;
-  font-size: 7px;
+  font-size: var(--font-size-sub, 7px);
   font-weight: normal;
 }
 
 .wallpaper-domain {
   position: absolute;
-  bottom: 147px;
-  left: -15px;
-  font-size: 5px;
+  bottom: 0;
+  left: var(--domain-left, -15px);
+  font-size: var(--font-size-domain, 5px);
   opacity: 0.6;
   letter-spacing: 0.5px;
   white-space: nowrap;
   transform: rotate(90deg);
   transform-origin: bottom left;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Responsive adjustments */

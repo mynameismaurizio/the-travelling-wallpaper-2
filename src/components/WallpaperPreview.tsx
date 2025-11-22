@@ -2,6 +2,7 @@ import React from 'react';
 import type { Gradient } from '../data/gradients';
 import type { Phrase } from '../data/phrases';
 import type { Country } from '../data/countries';
+import type { PhoneSize } from '../data/phoneSizes';
 import { formatCurrency, getCurrencySymbol } from '../utils/currency';
 import { getTranslatedPhrase } from '../data/phrases';
 import './WallpaperPreview.css';
@@ -15,11 +16,18 @@ interface WallpaperPreviewProps {
   textOpacity: number;
   phrases: Phrase[];
   showDomain: boolean;
+  phoneSize: PhoneSize;
   previewRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 // Common denominations to display
 const denominations = [20, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3600, 3800, 4000, 4200, 4600, 4800, 5000];
+
+// iPhone 15 Pro Max dimensions (reference base)
+const REFERENCE_WIDTH = 1290;
+const REFERENCE_HEIGHT = 2796;
+const REFERENCE_PREVIEW_WIDTH = 320;
+const REFERENCE_PREVIEW_HEIGHT = 693;
 
 export const WallpaperPreview: React.FC<WallpaperPreviewProps> = ({
   country,
@@ -30,8 +38,15 @@ export const WallpaperPreview: React.FC<WallpaperPreviewProps> = ({
   textOpacity,
   phrases,
   showDomain,
+  phoneSize,
   previewRef,
 }) => {
+  // Calculate scale factor based on height ratio (maintaining aspect ratio)
+  const scaleFactor = phoneSize.height / REFERENCE_HEIGHT;
+  
+  // Calculate preview dimensions
+  const previewWidth = REFERENCE_PREVIEW_WIDTH; // Fixed for marketing
+  const previewHeight = REFERENCE_PREVIEW_HEIGHT * scaleFactor;
 
   const destinationCurrency = country.currency.code;
   const baseSymbol = getCurrencySymbol(baseCurrency);
@@ -61,9 +76,37 @@ export const WallpaperPreview: React.FC<WallpaperPreviewProps> = ({
     };
   });
 
+  // Base values for iPhone 15 Pro Max
+  const baseValues = {
+    contentPaddingTop: 40,
+    contentPaddingSides: 20,
+    columnsMarginTop: 150,
+    columnsGap: 20,
+    columnWidth: 48,
+    fontSizeBase: 8,
+    fontSizeSub: 7,
+    fontSizeDomain: 5,
+    domainLeft: -15,
+    spacingSmall: 6,
+  };
+
   const style: React.CSSProperties = {
     background: `linear-gradient(180deg, ${gradient.startColor} 0%, ${gradient.endColor} 100%)`,
-  };
+    // CSS custom properties for proportional scaling
+    '--scale-factor': scaleFactor.toString(),
+    '--preview-width': `${previewWidth}px`,
+    '--preview-height': `${previewHeight}px`,
+    '--content-padding-top': `${baseValues.contentPaddingTop * scaleFactor}px`,
+    '--content-padding-sides': `${baseValues.contentPaddingSides * scaleFactor}px`,
+    '--columns-margin-top': `${baseValues.columnsMarginTop * scaleFactor}px`,
+    '--columns-gap': `${baseValues.columnsGap * scaleFactor}px`,
+    '--column-width': `${baseValues.columnWidth * scaleFactor}px`,
+    '--font-size-base': `${baseValues.fontSizeBase * scaleFactor}px`,
+    '--font-size-sub': `${baseValues.fontSizeSub * scaleFactor}px`,
+    '--font-size-domain': `${baseValues.fontSizeDomain * scaleFactor}px`,
+    '--domain-left': `${baseValues.domainLeft * scaleFactor}px`,
+    '--spacing-small': `${baseValues.spacingSmall * scaleFactor}px`,
+  } as React.CSSProperties;
 
   // Convert opacity percentage (0-100) to alpha (0-1)
   const alpha = textOpacity / 100;
@@ -102,6 +145,11 @@ export const WallpaperPreview: React.FC<WallpaperPreviewProps> = ({
                 {destSymbol} {conv.original.toLocaleString()}
               </div>
             ))}
+            {showDomain && (
+              <div className="wallpaper-domain" style={{ color: textColor }}>
+                {typeof window !== 'undefined' ? window.location.hostname : 'the-travelling-wallpaper.com'}
+              </div>
+            )}
           </div>
           {/* Second column: Converted amounts only */}
           <div className="column column-converted">
@@ -138,11 +186,6 @@ export const WallpaperPreview: React.FC<WallpaperPreviewProps> = ({
               return null;
             })}
           </div>
-          {showDomain && (
-            <div className="wallpaper-domain" style={{ color: textColor }}>
-              {typeof window !== 'undefined' ? window.location.hostname : 'the-travelling-wallpaper.com'}
-            </div>
-          )}
         </div>
       </div>
     </div>
